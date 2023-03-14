@@ -14,6 +14,13 @@ class LocationView(APIView):
         return Response({'message': 'Location is required parameter'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+class LocationsView(APIView):
+    def get(self, request):
+        locations = Location.objects.all()
+        serializer = LocationSerializer(locations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 class Weather(APIView):
     def get(self, request):
         location = request.GET.get('location', None)
@@ -87,10 +94,12 @@ class OneForecast(APIView):
 
 
 def delete_weather(location):
-    current = CurrentWeather.objects.get(location=location)
+    current = CurrentWeather.objects.filter(location=location)
     daily = DailyForecast.objects.filter(location=location)
-    current.delete()
-    daily.delete()
+    if current.exists():
+        current.delete()
+    if daily.exists():
+        daily.delete()
 
 
 def get_data(location):

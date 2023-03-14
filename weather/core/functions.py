@@ -35,7 +35,7 @@ def parse_data(data):
 
     if isinstance(data['temp'], dict):
         day_temp = data['temp']['day']
-        night_temp = data['temp']['day']
+        night_temp = data['temp']['night']
         resp.update({'day_temp': day_temp})
         resp.update({'night_temp': night_temp})
     else:
