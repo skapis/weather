@@ -1,14 +1,14 @@
 # Weather
-In this repository is simple weather app, which contains simple weather widget and weather API. 
+In this repository is simple weather app which contains simple weather widget and weather API. 
 App uses Django Framework and Django REST Framework for the backend and for the frontend is used ReactJS.
 
 ## API
-Source of weather data is API from external service. App uses cache to save api calls to external service, because there is daily limit.
+Source of weather data is API from external service. App uses cache to save api calls to external service because there is daily limit.
 
 ### Endpoints
 
 #### Locations
-Serve all locations, which is registered in app database. Because of app uses external service to get weather data there is no POST method. 
+Serve all locations which is registered in app database. Because of app uses external service to get weather data there is no POST method. 
 New location can be registered only by admin in Django Administration.
 
 ```http
@@ -34,7 +34,7 @@ GET /locations
 ```
 
 #### Single location
-To get data about specific location can be used this api endpoint which provides data for single location
+To get data about specific location can be used this api endpoint which provides data for single location.
 
 ```http
 GET /location?location={locationId}
@@ -210,7 +210,7 @@ GET /weather?location={locationId}
 ```
 
 #### One Forecast
-This endpoint provides forecast for tomorrow for requested location. This endpoint is protected by apiKey. In Django administration admin can create apikey for specific users.
+This endpoint provides a forecast for tomorrow for the requested location. This endpoint is protected by apiKey. In Django administration, the admin can create apikey for specific users.
 
 ```http
 GET /weather/one?location={locationId}&key={apiKey}
@@ -241,12 +241,12 @@ GET /weather/one?location={locationId}&key={apiKey}
 ```
 
 ## Weather Widget
-For the common users is created simple weather widget, which shows current weather in selected location and 7 day weather forecast. User can switch between locations by select in the top of widget.
+For the common users is created simple weather widget, which shows the current weather in a selected location and a 7-day weather forecast. Users can switch between locations by selecting at the top of the widget.
 
 ![Desktop Version](https://github.com/skapis/appscreenshots/blob/main/Weather/Widget_Desktop.png)
 
 ### Mobile Version of Widget
-On mobile widget looks little different
+On mobile widget looks a little different.
 
 ![Mobile Version](https://github.com/skapis/appscreenshots/blob/main/Weather/Widget_Mobile.png)
 
